@@ -1393,8 +1393,8 @@ impl<Block: BlockT> GossipValidator<Block> {
 	}
 
 	fn report(&self, who: PeerId, cost_benefit: ReputationChange) {
-		debug!(target: "afg", "Reputation change for peer: {}, reason: {}", who, cost_benefit.reason);
-		let _ = self.report_sender.unbounded_send(PeerReport { who, cost_benefit });
+		log::info!(target: "afg", "Reputation change for peer: {}, reason: {}", who, cost_benefit.reason);
+		// let _ = self.report_sender.unbounded_send(PeerReport { who, cost_benefit });
 	}
 
 	pub(super) fn do_validate(
